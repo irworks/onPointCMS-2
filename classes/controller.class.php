@@ -14,6 +14,7 @@
 namespace irworksWeb\Controller;
 
 require_once 'template.class.php';
+require_once '../config/static.php';
 
 abstract class Controller
 {
@@ -23,7 +24,7 @@ abstract class Controller
     
     function __construct() {
         $this->tpl = new Template();
-        $this->tpl->loadHTML('general.html');
+        $this->tpl->loadHTML(GENERAL_NAME);
         $this->tpl->loadHTML('navigation.html');
 
         $this->pageContent = '';
@@ -33,10 +34,14 @@ abstract class Controller
     function renderPage() {
         $this->tpl->assign('navigationItems', $this->navigationContent, 'navigation.html');
 
-        $this->tpl->assign('body', $this->pageContent, 'general.html');
-        $this->tpl->assign('navigation', $this->tpl->getFullHTML('navigation.html'), 'general.html');
+        $this->tpl->assign('siteOrigName', SITE_NAME, GENERAL_NAME);
+        $this->tpl->assign('siteDescription', SITE_DESCRIPTION, GENERAL_NAME);
+        $this->tpl->assign('siteKeywords', SITE_KEYWORD, GENERAL_NAME);
+        
+        $this->tpl->assign('body', $this->pageContent, GENERAL_NAME);
+        $this->tpl->assign('navigation', $this->tpl->getFullHTML('navigation.html'), GENERAL_NAME);
 
-        echo $this->tpl->getFullHTML('general.html');
+        echo $this->tpl->getFullHTML(GENERAL_NAME);
     }
 
     protected function addNavigationItem($displayName, $link) {

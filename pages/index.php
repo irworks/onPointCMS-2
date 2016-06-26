@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * Created by irworks on 26.06.16.
  * © Copyright irworks, 2016
