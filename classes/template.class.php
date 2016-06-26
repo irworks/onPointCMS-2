@@ -11,7 +11,7 @@
  * Depends: [NONE]
  */
 
-namespace irworksWeb\Controllers;
+namespace irworksWeb\Controller;
 
 class Template
 {

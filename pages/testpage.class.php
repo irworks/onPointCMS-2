@@ -11,26 +11,28 @@
  * Depends: [NONE]
  */
 
-namespace irworksWeb\Pages;
+namespace irworksWeb\GUI {
+    require_once '../classes/controller.class.php';
 
-require_once '../classes/controller.class.php';
+    use irworksWeb\Controller\Controller;
 
-class Testpage extends Controller
-{
+    class Testpage extends Controller
+    {
 
-    function __construct() {
-        parent::__construct();
-        $this->renderPage();
+        function __construct() {
+            parent::__construct();
+            $this->renderPage();
+        }
+
+        function renderPage() {
+            $this->tpl->loadHTML('test.html');
+            $this->tpl->assign('pageOpener', 'This is a test!');
+            $this->tpl->assign('pageTitle', 'Testpage');
+            $this->tpl->assign('sampleText', 'Lorem ipsum dolar sit amet...');
+
+            $this->pageContent .= $this->tpl->getFullHTML('test.html');
+            parent::renderPage();
+        }
+
     }
-
-    function renderPage() {
-        $this->tpl->loadHTML('test.html');
-        $this->tpl->assign('pageOpener', 'This is a test!');
-        $this->tpl->assign('pageTitle', 'Testpage');
-        $this->tpl->assign('sampleText', 'Lorem ipsum dolar sit amet...');
-
-        $this->pageContent .= $this->tpl->getFullHTML('test.html');
-        parent::renderPage();
-    }
-
 }

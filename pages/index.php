@@ -11,8 +11,12 @@
  * Depends: [NONE]
  */
 
-require_once 'testpage.class.php';
+namespace irworksWeb {
+    use irworksWeb\Controller;
+    use irworksWeb\GUI\Testpage;
 
-new Testpage();
+    require_once 'testpage.class.php';
+    new Testpage();
+}
 
 ?>
