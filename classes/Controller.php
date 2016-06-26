@@ -11,6 +11,8 @@
  * Depends: [NONE]
  */
 
+namespace irworksWeb\Controllers;
+
 require_once 'Template.php';
 
 class Controller

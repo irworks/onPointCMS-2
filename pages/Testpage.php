@@ -6,10 +6,12 @@
  */
 
 /**
- * Module: [INSERT]
+ * Module: GUI pages
  * File: irworksWeb/Testpage.php
  * Depends: [NONE]
  */
+
+namespace irworksWeb\Pages;
 
 require_once '../classes/Controller.php';
 

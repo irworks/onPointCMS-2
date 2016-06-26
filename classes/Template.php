@@ -10,6 +10,9 @@
  * File: irworksWeb/Template.php
  * Depends: [NONE]
  */
+
+namespace irworksWeb\Controllers;
+
 class Template
 {
 
