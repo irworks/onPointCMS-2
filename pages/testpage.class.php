@@ -30,6 +30,8 @@ namespace irworksWeb\GUI {
             $this->tpl->assign('pageTitle', 'Testpage');
             $this->tpl->assign('sampleText', 'Lorem ipsum dolar sit amet...');
 
+            $this->addNavigationItem('Test', 'index.php');
+
             $this->pageContent .= $this->tpl->getFullHTML('test.html');
             parent::renderPage();
         }

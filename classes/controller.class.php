@@ -27,7 +27,7 @@ abstract class Controller
         $this->tpl->loadHTML('navigation.html');
 
         $this->pageContent = '';
-        $this->navigationContent = '<li><a href="./">Home</a></li>';
+        $this->addNavigationItem('Home', './');
     }
     
     function renderPage() {
@@ -37,5 +37,9 @@ abstract class Controller
         $this->tpl->assign('navigation', $this->tpl->getFullHTML('navigation.html'), 'general.html');
 
         echo $this->tpl->getFullHTML('general.html');
+    }
+
+    protected function addNavigationItem($displayName, $link) {
+        $this->navigationContent .= '<li class="navigation-item"><a href="' . $link . '">' . $displayName . '</a></li>';
     }
 }
