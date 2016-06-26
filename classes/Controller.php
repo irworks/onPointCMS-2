@@ -15,7 +15,7 @@ namespace irworksWeb\Controllers;
 
 require_once 'Template.php';
 
-class Controller
+abstract class Controller
 {
     protected $tpl;
     protected $pageContent;
