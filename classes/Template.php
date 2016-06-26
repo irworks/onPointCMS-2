@@ -58,7 +58,7 @@ class Template
                 $this->fileNameToContent[$templateKey] = $this->replaceVariables($key, $value, $templateValue);
             }
         }else{
-            $this->fileNameToContent[$fileName] = $this->replaceVariables($key, $value, getFullHTML($fileName));
+            $this->fileNameToContent[$fileName] = $this->replaceVariables($key, $value, $this->getFullHTML($fileName));
         }
     }
 

@@ -16,8 +16,17 @@ require_once 'Template.php';
 class Controller
 {
     protected $tpl;
+    protected $pageContent;
     
     function __construct() {
         $this->tpl = new Template();
+        $this->tpl->loadHTML('general.html');
+
+        $this->pageContent = '';
+    }
+    
+    function renderPage() {
+        $this->tpl->assign('body', $this->pageContent, 'general.html');
+        echo $this->tpl->getFullHTML('general.html');
     }
 }

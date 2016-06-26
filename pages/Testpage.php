@@ -24,8 +24,11 @@ class Testpage extends Controller
     function renderPage() {
         $this->tpl->loadHTML('test.html');
         $this->tpl->assign('pageOpener', 'This is a test!');
+        $this->tpl->assign('pageTitle', 'Testpage');
+        $this->tpl->assign('sampleText', 'Lorem ipsum dolar sit amet...');
 
-        echo($this->tpl->getFullHTML('test.html'));
+        $this->pageContent .= $this->tpl->getFullHTML('test.html');
+        parent::renderPage();
     }
 
 }
