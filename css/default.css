@@ -1,0 +1,12 @@
+html, body {
+    font-family: 'HelveticaNeue', Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+a, a:visited, a:link {
+    text-decoration: none;
+    color: #e98d2f;
+}
+
+a:hover, a:active {
+    color: #ab6823;
+}
