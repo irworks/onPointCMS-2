@@ -11,7 +11,7 @@
  * Depends: [NONE]
  */
 
-require_once 'Testpage.php';
+require_once 'testpage.class.php';
 
 new Testpage();
 

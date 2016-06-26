@@ -7,7 +7,7 @@
 
 /**
  * Module: Template loader, load html files
- * File: irworksWeb/Template.php
+ * File: irworksWeb/template.class.php
  * Depends: [NONE]
  */
 

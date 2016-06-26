@@ -7,13 +7,13 @@
 
 /**
  * Module: GUI pages
- * File: irworksWeb/Testpage.php
+ * File: irworksWeb/testpage.class.php
  * Depends: [NONE]
  */
 
 namespace irworksWeb\Pages;
 
-require_once '../classes/Controller.php';
+require_once '../classes/controller.class.php';
 
 class Testpage extends Controller
 {

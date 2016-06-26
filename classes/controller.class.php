@@ -7,13 +7,13 @@
 
 /**
  * Module: [INSERT]
- * File: irworksWeb/Controller.php
+ * File: irworksWeb/controller.class.php
  * Depends: [NONE]
  */
 
 namespace irworksWeb\Controllers;
 
-require_once 'Template.php';
+require_once 'template.class.php';
 
 abstract class Controller
 {
