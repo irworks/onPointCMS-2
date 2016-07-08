@@ -26,7 +26,7 @@ namespace irworksWeb\GUI {
 
         function renderPage() {
             $this->tpl->loadHTML('test.html');
-            $this->tpl->assign('pageOpener', 'This is a test!');
+            $this->tpl->assign('pageOpener', 'IR WORKS');
             $this->tpl->assign('pageTitle', 'Testpage');
             $this->tpl->assign('sampleText', 'Lorem ipsum dolar sit amet...');
 
