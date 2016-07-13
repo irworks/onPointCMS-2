@@ -12,7 +12,7 @@
  */
 
 namespace irworksWeb\GUI {
-    require_once '../classes/controller.class.php';
+    require_once __DIR__ . '/../classes/controller.class.php';
 
     use irworksWeb\Controller\Controller;
 

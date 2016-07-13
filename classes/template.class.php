@@ -16,7 +16,7 @@ namespace irworksWeb\Controller;
 class Template
 {
 
-    private $BASE_PATH = '../html/';
+    private $BASE_PATH =  '/../html/';
     private $fileNameToContent = array();
 
     /**
@@ -33,7 +33,7 @@ class Template
         }
 
         //not yet loaded
-        $fileContent = file_get_contents($this->BASE_PATH . $fileName);
+        $fileContent = file_get_contents(__DIR__  . $this->BASE_PATH . $fileName);
 
         //reading failed!
         if($fileContent === false) {

@@ -14,7 +14,7 @@
 namespace irworksWeb\Controller;
 
 require_once 'template.class.php';
-require_once '../config/static.php';
+require_once __DIR__ . '/../config/static.php';
 
 abstract class Controller
 {

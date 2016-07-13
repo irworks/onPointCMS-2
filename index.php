@@ -15,8 +15,19 @@ namespace irworksWeb {
     use irworksWeb\Controller;
     use irworksWeb\GUI\Testpage;
 
-    require_once 'testpage.class.php';
-    new Testpage();
+    $contentType = isset($_GET['cont-type']) ? $_GET['cont-type'] : 'page';
+
+    switch ($contentType) {
+
+        case 'blog':
+            break;
+
+        case 'page':
+            require_once './pages/testpage.class.php';
+            new Testpage();
+            break;
+
+    }
 }
 
 ?>
