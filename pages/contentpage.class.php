@@ -13,23 +13,30 @@
 
 namespace irworksWeb\GUI {
     require_once __DIR__ . '/../classes/controller.class.php';
-
     use irworksWeb\Controller\Controller;
 
-    class Testpage extends Controller
+    class Contentpage extends Controller
     {
+        
+        protected $pageTitle;
+        protected $pageOpener;
 
-        function __construct() {
+        function __construct($pageTitle = '', $pageOpener = 'IR WORKS') {
             parent::__construct();
-            $this->renderPage();
+
+            $this->pageTitle  = $pageTitle;
+            $this->pageOpener = $pageOpener;
+
+            $this->preparePage();
+        }
+
+        function preparePage() {
+            $this->tpl->loadHTML('test.html');
+            $this->tpl->assign('pageOpener', $this->pageOpener);
+            $this->tpl->assign('pageTitle', $this->pageTitle);
         }
 
         function renderPage() {
-            $this->tpl->loadHTML('test.html');
-            $this->tpl->assign('pageOpener', 'IR WORKS');
-            $this->tpl->assign('pageTitle', 'Testpage');
-            $this->tpl->assign('sampleText', 'Lorem ipsum dolar sit amet...');
-
             $this->addNavigationItem('Test', 'index.php');
 
             $this->pageContent .= $this->tpl->getFullHTML('test.html');

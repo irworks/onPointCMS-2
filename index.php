@@ -13,7 +13,7 @@
 
 namespace irworksWeb {
     use irworksWeb\Controller;
-    use irworksWeb\GUI\Testpage;
+    use irworksWeb\GUI\Homepage;
 
     $contentType = isset($_GET['cont-type']) ? $_GET['cont-type'] : 'page';
 
@@ -23,8 +23,8 @@ namespace irworksWeb {
             break;
 
         case 'page':
-            require_once './pages/testpage.class.php';
-            new Testpage();
+            require_once './pages/homepage.class.php';
+            new Homepage();
             break;
 
     }
