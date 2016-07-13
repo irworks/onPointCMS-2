@@ -17,7 +17,7 @@ require_once __DIR__ . '/contentpage.class.php';
 class Homepage extends Contentpage
 {
     function __construct() {
-        parent::__construct('Homepage');
+        parent::__construct('Homepage', false);
 
         $this->tpl->assign('pageSubtitle', 'More than just code.');
         $this->tpl->assign('sampleText', 'Lorem ipsum...');

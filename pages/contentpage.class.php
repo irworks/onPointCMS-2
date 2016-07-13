@@ -20,12 +20,14 @@ namespace irworksWeb\GUI {
         
         protected $pageTitle;
         protected $pageOpener;
+        protected $showInNavigation;
 
-        function __construct($pageTitle = '', $pageOpener = 'IR WORKS') {
+        function __construct($pageTitle = '', $showInNavigation = true, $pageOpener = 'IR WORKS') {
             parent::__construct();
 
-            $this->pageTitle  = $pageTitle;
-            $this->pageOpener = $pageOpener;
+            $this->pageTitle        = $pageTitle;
+            $this->pageOpener       = $pageOpener;
+            $this->showInNavigation = $showInNavigation;
 
             $this->preparePage();
         }
@@ -37,7 +39,9 @@ namespace irworksWeb\GUI {
         }
 
         function renderPage() {
-            $this->addNavigationItem('Test', 'index.php');
+            if($this->showInNavigation) {
+                $this->addNavigationItem($this->pageTitle, 'index.php?content-type=page&content-id=' . urlencode($this->pageTitle));
+            }
 
             $this->pageContent .= $this->tpl->getFullHTML('test.html');
             parent::renderPage();

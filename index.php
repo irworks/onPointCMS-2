@@ -15,7 +15,8 @@ namespace irworksWeb {
     use irworksWeb\Controller;
     use irworksWeb\GUI\Homepage;
 
-    $contentType = isset($_GET['cont-type']) ? $_GET['cont-type'] : 'page';
+    $contentType = isset($_GET['content-type']) ? $_GET['content-type'] : 'page';
+    $contentID   = isset($_GET['content-id'])   ? $_GET['content-id']   : '404';
 
     switch ($contentType) {
 
