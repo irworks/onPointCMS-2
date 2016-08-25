@@ -21,8 +21,11 @@ abstract class Controller
     protected $tpl;
     protected $navigationContent;
     protected $pageContent;
+    protected $db;
     
-    function __construct() {
+    function __construct(DB $db) {
+        $this->db = $db;
+
         $this->tpl = new Template();
         $this->tpl->loadHTML(GENERAL_NAME);
         $this->tpl->loadHTML('navigation.html');

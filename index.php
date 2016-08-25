@@ -12,12 +12,19 @@
  */
 
 namespace irworksWeb {
-    use irworksWeb\Controller;
+    require_once __DIR__ . '/config/database.php';
+    require_once __DIR__ . '/classes/db.class.php';
+
+    use irworksWeb\Controller\DB;
     use irworksWeb\GUI\Homepage;
 
     $contentType = isset($_GET['content-type']) ? $_GET['content-type'] : 'page';
     $contentID   = isset($_GET['content-id'])   ? $_GET['content-id']   : '404';
 
+    /* connect to the database */
+    $db = new DB(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB);
+
+    /* find out what we want */
     switch ($contentType) {
 
         case 'blog':
@@ -25,7 +32,7 @@ namespace irworksWeb {
 
         case 'page':
             require_once './pages/homepage.class.php';
-            new Homepage();
+            new Homepage($db);
             break;
 
     }

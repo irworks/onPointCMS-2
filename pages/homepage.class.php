@@ -12,12 +12,14 @@
  */
 
 namespace irworksWeb\GUI;
+use irworksWeb\Controller\DB;
+
 require_once __DIR__ . '/contentpage.class.php';
 
 class Homepage extends Contentpage
 {
-    function __construct() {
-        parent::__construct('Homepage', false);
+    function __construct(DB $db) {
+        parent::__construct($db, 'Homepage', false);
 
         $this->tpl->assign('pageSubtitle', 'More than just code.');
         $this->tpl->assign('sampleText', 'Lorem ipsum...');

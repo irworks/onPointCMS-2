@@ -14,6 +14,7 @@
 namespace irworksWeb\GUI {
     require_once __DIR__ . '/../classes/controller.class.php';
     use irworksWeb\Controller\Controller;
+    use irworksWeb\Controller\DB;
 
     class Contentpage extends Controller
     {
@@ -22,8 +23,8 @@ namespace irworksWeb\GUI {
         protected $pageOpener;
         protected $showInNavigation;
 
-        function __construct($pageTitle = '', $showInNavigation = true, $pageOpener = 'IR WORKS') {
-            parent::__construct();
+        function __construct(DB $db, $pageTitle = '', $showInNavigation = true, $pageOpener = 'IR WORKS') {
+            parent::__construct($db);
 
             $this->pageTitle        = $pageTitle;
             $this->pageOpener       = $pageOpener;
