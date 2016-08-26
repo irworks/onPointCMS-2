@@ -32,7 +32,7 @@ namespace irworksWeb {
 
         case 'blog':
             require_once './pages/blog.class.php';
-            new Blog($db, $contentID, 'Blog', true, false);
+            new Blog($db, $contentID, 'Blog');
             break;
 
         case 'page':

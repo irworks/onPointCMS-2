@@ -20,8 +20,8 @@ require_once __DIR__ . '/../models/blogPost.object.php';
 
 class Blog extends Contentpage
 {
-    function __construct(DB $db, $contentID, $pageTitle, $showInNavigation, $pageOpener) {
-        parent::__construct($db, $contentID, $pageTitle, $showInNavigation, $pageOpener);
+    function __construct(DB $db, $contentID, $pageTitle) {
+        parent::__construct($db, $contentID, $pageTitle, $pageTitle);
 
         $this->getBlogPosts();
         $this->renderPage();

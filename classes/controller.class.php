@@ -32,7 +32,8 @@ abstract class Controller
 
         $this->pageContent = '';
         $this->addNavigationItem('IRWORKS.DE', './', 'big-navigation-item');
-        $this->addNavigationItem('Home', './');
+        $this->addNavigationItem('Home', '/');
+        $this->addNavigationItem('Blog', '/blog/');
     }
     
     function renderPage() {
