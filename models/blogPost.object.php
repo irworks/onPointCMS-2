@@ -10,14 +10,13 @@
  * File: irworksWeb/blogPost.object.php
  * Depends: [NONE]
  */
-class BlogPost
+
+require_once __DIR__ . '/baseModel.object.php';
+class BlogPost extends BaseModel
 {
     protected $postId;
     protected $postTitle;
     protected $postContent;
-
-    protected $postCreateDaTi;
-    protected $postUpdateDaTi;
 
     /**
      * @return mixed
@@ -39,20 +38,5 @@ class BlogPost
     public function getPostContent() {
         return $this->postContent;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getPostCreateDaTi() {
-        return $this->postCreateDaTi;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPostUpdateDaTi() {
-        return $this->postUpdateDaTi;
-    }
-
 
 }

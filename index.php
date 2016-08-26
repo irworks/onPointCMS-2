@@ -17,7 +17,9 @@ namespace irworksWeb {
 
     use irworksWeb\Controller\DB;
     use irworksWeb\GUI\Blog;
+    use irworksWeb\GUI\Contentpage;
     use irworksWeb\GUI\Homepage;
+    use irworksWeb\GUI\StaticPage;
 
     $contentType = isset($_GET['content-type']) ? removeTags($_GET['content-type']) : 'page';
     $contentID   = isset($_GET['content-id'])   ? removeTags($_GET['content-id'])   : '';
@@ -36,8 +38,13 @@ namespace irworksWeb {
             break;
 
         case 'page':
-            require_once './pages/homepage.class.php';
-            new Homepage($db);
+            if($contentID == '') {
+                require_once './pages/homepage.class.php';
+                new Homepage($db);
+            }else{
+                require_once './pages/staticPage.class.php';
+                new StaticPage($db, $contentID);
+            }
             break;
 
     }

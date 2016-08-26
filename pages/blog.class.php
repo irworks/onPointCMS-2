@@ -21,7 +21,7 @@ require_once __DIR__ . '/../models/blogPost.object.php';
 class Blog extends Contentpage
 {
     function __construct(DB $db, $contentID, $pageTitle) {
-        parent::__construct($db, $contentID, $pageTitle, $pageTitle);
+        parent::__construct($db, $contentID, $pageTitle, '@ME - remember to add translation!', $pageTitle);
 
         $this->getBlogPosts();
         $this->renderPage();
@@ -30,7 +30,7 @@ class Blog extends Contentpage
     private function getBlogPosts($limit = 10) {
         $q = 'SELECT postId, postTitle, postContent' . PHP_EOL;
         $q .= 'FROM' . PHP_EOL;
-        $q .= 'blog' . PHP_EOL; //TODO: insert table name
+        $q .= 'blog' . PHP_EOL;
 
         if(!empty($this->contentID)) {
             //only one post should be displayed
