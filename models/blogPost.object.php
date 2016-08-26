@@ -13,8 +13,46 @@
 class BlogPost
 {
     protected $postId;
-    protected $postCont;
+    protected $postTitle;
+    protected $postContent;
 
     protected $postCreateDaTi;
     protected $postUpdateDaTi;
+
+    /**
+     * @return mixed
+     */
+    public function getPostId() {
+        return $this->postId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPostTitle() {
+        return $this->postTitle;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPostContent() {
+        return $this->postContent;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPostCreateDaTi() {
+        return $this->postCreateDaTi;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPostUpdateDaTi() {
+        return $this->postUpdateDaTi;
+    }
+
+
 }

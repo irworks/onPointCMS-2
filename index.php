@@ -20,9 +20,9 @@ namespace irworksWeb {
     use irworksWeb\GUI\Homepage;
 
     $contentType = isset($_GET['content-type']) ? removeTags($_GET['content-type']) : 'page';
-    $contentID   = isset($_GET['content-id'])   ? removeTags($_GET['content-id'])   : '404';
+    $contentID   = isset($_GET['content-id'])   ? removeTags($_GET['content-id'])   : '';
 
-    var_dump($_GET);
+    //var_dump($_GET);
 
     /* connect to the database */
     $db = new DB(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB);

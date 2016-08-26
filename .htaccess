@@ -1,7 +1,12 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine On
-	RewriteBase /irworksTest/
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule (.+)\/(.+) index.php?content-type=$1&content-id=$2 [QSA,NC,L]
+	RewriteBase /
+
+	RewriteCond %{REQUEST_FILENAME} -f [OR]
+	RewriteCond %{REQUEST_FILENAME} -d [OR]
+	RewriteCond %{REQUEST_FILENAME} -l
+    RewriteRule ^ - [L]
+
+	RewriteRule (.+)\/$ index.php?content-type=$1 [QSA,NC,L]
+	RewriteRule (.+)\/(.+) index.php?content-type=$1&content-id=$2&requestFilename=%{REQUEST_FILENAME} [QSA,NC,L]
 </IfModule>

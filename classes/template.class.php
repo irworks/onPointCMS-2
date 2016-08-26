@@ -86,7 +86,14 @@ class Template
      * @return string - the full HTML string
      */
     public function getFullHTML($fileName) {
-        return isset($this->fileNameToContent[$fileName]) ? $this->fileNameToContent[$fileName] : '';
+        $html = '';
+
+        if(isset($this->fileNameToContent[$fileName])) {
+            $html = $this->fileNameToContent[$fileName];
+            unset($this->fileNameToContent[$fileName]);
+        }
+
+        return $html;
     }
 
 }

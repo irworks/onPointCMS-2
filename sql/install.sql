@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS users_session (
 # Create the table for the blog
 CREATE TABLE IF NOT EXISTS blog(
   postId INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  postConent TEXT NOT NULL,
+  postContent TEXT NOT NULL,
   idUser INT NOT NULL,
   createDaTi DATETIME DEFAULT NOW(),
   updateDaTi DATETIME DEFAULT NULL,
@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS blog(
 # Create the table for the html page content
 CREATE TABLE IF NOT EXISTS page(
   pageId INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  postTitle VARCHAR(500) NOT NULL,
   pageConent TEXT NOT NULL,
   idUser INT NOT NULL,
   createDaTi DATETIME DEFAULT NOW(),

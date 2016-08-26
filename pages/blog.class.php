@@ -28,22 +28,29 @@ class Blog extends Contentpage
     }
 
     private function getBlogPosts($limit = 10) {
-        $q = 'SELECT postId, postCont' . PHP_EOL;
+        $q = 'SELECT postId, postTitle, postContent' . PHP_EOL;
         $q .= 'FROM' . PHP_EOL;
-        $q .= 'TBNAME' . PHP_EOL; //TODO: insert table name
+        $q .= 'blog' . PHP_EOL; //TODO: insert table name
 
         if(!empty($this->contentID)) {
             //only one post should be displayed
             $q .= 'WHERE postId = ' . $this->db->cl($this->contentID) . PHP_EOL;
             $limit = 1;
         }
+        $q .= 'LIMIT ' . $limit;
 
-        $q .= 'LIMIT ' . $this->db->cl($limit);
+        $siteContent = '';
 
         $result = $this->db->query($q);
         while($result && $blogPost = mysqli_fetch_object($result, \BlogPost::class)) {
+            $this->tpl->loadHTML('blog-post.html');
+            $this->tpl->assign('postName', $blogPost->getPostTitle());
+            $this->tpl->assign('postContent', $blogPost->getPostContent());
 
+            $siteContent .= $this->tpl->getFullHTML('blog-post.html');
         }
+
+        $this->tpl->assign('siteContent', $siteContent);
     }
 
 }

@@ -38,6 +38,8 @@ namespace irworksWeb\GUI {
             $this->tpl->loadHTML('test.html');
             $this->tpl->assign('pageOpener', $this->pageOpener);
             $this->tpl->assign('pageTitle', $this->pageTitle);
+
+            $this->tpl->assign('footer', '&copy; ' . date('Y') . ', ' . SITE_KEYWORD);
         }
 
         function renderPage() {
