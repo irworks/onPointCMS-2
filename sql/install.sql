@@ -23,8 +23,8 @@ CREATE TABLE IF NOT EXISTS users_session (
 # Create the table for the blog
 CREATE TABLE IF NOT EXISTS blog(
   postId INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  pageTitle VARCHAR(500) NOT NULL,
-  pageContent TEXT NOT NULL,
+  postTitle VARCHAR(500) NOT NULL,
+  postContent TEXT NOT NULL,
   idUser INT NOT NULL,
   createDaTi DATETIME DEFAULT NOW(),
   updateDaTi DATETIME DEFAULT NULL,
@@ -36,11 +36,23 @@ CREATE TABLE IF NOT EXISTS blog(
 CREATE TABLE IF NOT EXISTS page(
   pageId INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   postTitle VARCHAR(500) NOT NULL,
-  pageConent TEXT NOT NULL,
+  pageContent TEXT NOT NULL,
   pageURI VARCHAR(250) NOT NULL,
   idUser INT NOT NULL,
   createDaTi DATETIME DEFAULT NOW(),
   updateDaTi DATETIME DEFAULT NULL,
 
   FOREIGN KEY (idUser) REFERENCES users(userId)
+);
+
+# Create the table for the page => page connection (for child pages
+CREATE TABLE IF NOT EXISTS page_child(
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  pageIdParent INT NOT NULL,
+  pageIdChild INT NOT NULL,
+  createDaTi DATETIME DEFAULT NOW(),
+  updateDaTi DATETIME DEFAULT NULL,
+
+  FOREIGN KEY (pageIdParent) REFERENCES page(pageId),
+  FOREIGN KEY (pageIdChild) REFERENCES page(pageId)
 );
