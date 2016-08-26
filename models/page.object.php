@@ -17,6 +17,7 @@ class Page extends BaseModel
     protected $pageTitle;
     protected $pageContent;
     protected $pageURI;
+    protected $pageIdParent;
     protected $idUser;
 
     /**
@@ -45,6 +46,13 @@ class Page extends BaseModel
      */
     public function getPageURI() {
         return $this->pageURI;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPageIdParent() {
+        return $this->pageIdParent;
     }
 
     /**

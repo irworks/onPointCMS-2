@@ -56,14 +56,17 @@ namespace irworksWeb\GUI {
         }
 
         private function getAllPages() {
-            $q  = 'SELECT pageId, pageTitle, pageContent, pageURI' . PHP_EOL;
+            $q  = 'SELECT pageId, pageTitle, pageContent, pageURI, pageIdParent' . PHP_EOL;
             $q .=   'FROM' . PHP_EOL;
-            $q .= 'page';
+            $q .= 'page LEFT JOIN page_child ON page.pageId = page_child.pageIdChild' . PHP_EOL;
+            $q .=   'ORDER BY pageId';
 
             $pages = array();
             $result = $this->db->query($q);
             while($result && $page = mysqli_fetch_object($result, Page::class)) {
-                $this->addNavigationItem($page->getPageTitle(), '/page/' . $page->getPageURI());
+                if(empty($page->getPageIdParent())) {
+                    $this->addNavigationItem($page->getPageTitle(), '/page/' . $page->getPageURI());
+                }
                 $pages[] = $page;
             }
 
