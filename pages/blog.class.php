@@ -16,6 +16,7 @@ namespace irworksWeb\GUI;
 use irworksWeb\Controller\DB;
 
 require_once __DIR__ . '/contentpage.class.php';
+require_once __DIR__ . '/../models/blogPost.object.php';
 
 class Blog extends Contentpage
 {
@@ -40,7 +41,9 @@ class Blog extends Contentpage
         $q .= 'LIMIT ' . $this->db->cl($limit);
 
         $result = $this->db->query($q);
-        //while($result && $blogPost = )
+        while($result && $blogPost = mysqli_fetch_object($result, \BlogPost::class)) {
+
+        }
     }
 
 }
