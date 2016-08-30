@@ -23,6 +23,9 @@ class Blog extends Contentpage
     function __construct(DB $db, $contentID, $pageTitle) {
         parent::__construct($db, $contentID, $pageTitle, '@ME - remember to add translation!', $pageTitle);
 
+        $this->tpl->loadHTML('blog-head.html');
+        $this->extraHead = $this->tpl->getFullHTML('blog-head.html');
+
         $this->getBlogPosts();
         $this->renderPage();
     }
