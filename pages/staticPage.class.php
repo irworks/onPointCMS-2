@@ -38,9 +38,7 @@ class StaticPage extends Contentpage
             $this->pageSubtitle = $this->pageTitle;
             $this->tpl->assign('siteContent', $this->pageModel->getPageContent());
         }else{
-            $this->tpl->loadHTML('page-not-found.html');
-            $this->pageSubtitle = 'Error 404';
-            $this->tpl->assign('siteContent', $this->tpl->getFullHTML('page-not-found.html'));
+            $this->setPageNotFound();
         }
 
         $this->renderPage();

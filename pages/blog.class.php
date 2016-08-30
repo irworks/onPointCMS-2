@@ -48,6 +48,7 @@ class Blog extends Contentpage
 
         $siteContent = '';
 
+        $countPosts = 0;
         $result = $this->db->query($q);
         while($result && $blogPost = mysqli_fetch_object($result, \BlogPost::class)) {
             $this->tpl->loadHTML('blog-post.html');
@@ -71,9 +72,14 @@ class Blog extends Contentpage
             $this->tpl->assign('readMoreClass', $readMoreClass);
 
             $siteContent .= $this->tpl->getFullHTML('blog-post.html');
+            $countPosts++;
         }
 
-        $this->tpl->assign('siteContent', $siteContent);
+        if(!$result || $countPosts <= 0) {
+            $this->setPageNotFound();
+        }else{
+            $this->tpl->assign('siteContent', $siteContent);
+        }
     }
 
 }

@@ -82,14 +82,13 @@ namespace irworksWeb\GUI {
                 }
             }
 
-            /*
-             *  if(empty($page->getPageIdParent())) {
-                    $this->addNavigationItem($page->getPageTitle(), '/page/' . $page->getPageURI());
-                }
-             *
-             */
-
             return $pages;
+        }
+
+        protected function setPageNotFound() {
+            $this->tpl->loadHTML('page-not-found.html');
+            $this->pageSubtitle = 'Error 404';
+            $this->tpl->assign('siteContent', $this->tpl->getFullHTML('page-not-found.html'));
         }
 
     }
