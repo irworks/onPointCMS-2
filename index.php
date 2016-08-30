@@ -59,7 +59,7 @@ namespace irworksWeb {
     }
 
     function removeTags($input = '') {
-        return str_replace('/', '', $input);
+        return strip_tags(str_replace('/', '', $input));
     }
 }
 
