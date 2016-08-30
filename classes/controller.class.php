@@ -60,7 +60,8 @@ abstract class Controller
         $this->navigationContent .= '<li class="navigation-item' . $specialClasses . '"><a class="navigation-item-link" href="' . $link . '">' . $displayName . '</a><ul class="children">' . $childrenList  .'</ul></li>';
     }
 
-    protected function getNavigationList() {
-
+    protected function parseMySQLDate($mysqlDate = '', $format = 'd. M. Y, H:m') {
+        return date($format, strtotime($mysqlDate));
     }
+
 }

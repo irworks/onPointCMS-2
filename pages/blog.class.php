@@ -31,7 +31,7 @@ class Blog extends Contentpage
     }
 
     private function getBlogPosts($limit = 10) {
-        $q = 'SELECT postId, postTitle, postContent' . PHP_EOL;
+        $q = 'SELECT postId, postTitle, postContent, createDaTi, updateDaTi' . PHP_EOL;
         $q .= 'FROM' . PHP_EOL;
         $q .= 'blog' . PHP_EOL;
 
@@ -47,8 +47,17 @@ class Blog extends Contentpage
         $result = $this->db->query($q);
         while($result && $blogPost = mysqli_fetch_object($result, \BlogPost::class)) {
             $this->tpl->loadHTML('blog-post.html');
+
+            $this->tpl->assign('postId', $blogPost->getPostId());
             $this->tpl->assign('postName', $blogPost->getPostTitle());
             $this->tpl->assign('postContent', $blogPost->getPostContent());
+            $this->tpl->assign('postPublishDate', $this->parseMySQLDate($blogPost->getCreateDaTi()));
+
+            $readMoreClass = 'post';
+            if($limit <= 1) {
+                $readMoreClass = 'ir-display-none';
+            }
+            $this->tpl->assign('readMoreClass', $readMoreClass);
 
             $siteContent .= $this->tpl->getFullHTML('blog-post.html');
         }

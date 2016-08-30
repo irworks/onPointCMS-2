@@ -29,6 +29,18 @@ h1 {
     margin-bottom: 0;
 }
 
+.ir-display-none {
+    display: none;
+}
+
+.ir-margin-center {
+    margin: 0 auto;
+}
+
+.ir-clear-both {
+    clear: both;
+}
+
 /* navigation */
 
 .site-navigation {
@@ -102,7 +114,6 @@ a.navigation-item-link, a.navigation-item-link:visited, a.navigation-item-link:l
 .site-content {
     width: 95%;
     padding-top: 60px;
-    margin: 0 auto;
     text-align: center;
 }
 

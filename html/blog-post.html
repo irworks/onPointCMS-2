@@ -1,3 +1,12 @@
-<h2>{$postName}</h2>
-<p>{$postContent}</p>
+<div class="blog-post ir-margin-center">
+    <small class="published-date">Veröffentlicht am: <i>{$postPublishDate}</i></small>
+    <h2 class="ir-clear-both">{$postName}</h2>
+    <p>{$postContent}</p>
+
+    <a href="/blog/{$postId}" class="{$readMoreClass}">
+        <div class="read-more-button">Weiterlesen...</div>
+    </a>
+
+</div>
+
 <hr>

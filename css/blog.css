@@ -1,3 +1,7 @@
+.blog-post {
+    width: 50%;
+}
+
 .read-more-button {
     height: 50px;
     background-color: #e98d2f;
@@ -18,4 +22,8 @@
 
 .read-more-button a:hover {
     color: rgba(199, 197, 197, 0.83);
+}
+
+.published-date {
+    float: right;
 }
