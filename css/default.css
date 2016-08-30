@@ -26,7 +26,7 @@ hr {
 
 h1 {
     font-size: 100px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 /* navigation */
@@ -69,6 +69,8 @@ ul.navigation-items li ul {
     background-color: #cf5b3e;
     text-shadow: none;
     margin-left: -12px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 ul.navigation-items li:hover ul {
