@@ -16,5 +16,5 @@ define('SITE_DESCRIPTION', 'IR Works - Software und weitere Projekte von Ilja Ro
 define('SITE_KEYWORD', 'IR Works, Ilja Rozhko');
 
 define('GENERAL_NAME', 'general.html');
-
+define('BLOG_POST_PREVIEW_LENGTH', 512);
 ?>
