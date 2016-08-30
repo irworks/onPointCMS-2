@@ -16,4 +16,6 @@ define('MYSQL_USER', '????');
 define('MYSQL_PASS', '????');
 define('MYSQL_DB',   '????');
 
+define('SRV_TYPE_PRODUCTION', true);
+
 ?>
