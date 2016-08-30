@@ -19,6 +19,7 @@ class Page extends BaseModel
     protected $pageURI;
     protected $pageIdParent;
     protected $idUser;
+    protected $children = array();
 
     /**
      * @return mixed
@@ -60,6 +61,17 @@ class Page extends BaseModel
      */
     public function getIdUser() {
         return $this->idUser;
+    }
+
+    /**
+     * @return array
+     */
+    public function getChildren(): array {
+        return $this->children;
+    }
+
+    public function addChildren(Page $child) {
+        $this->children[] = $child;
     }
 
 

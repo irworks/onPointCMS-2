@@ -64,11 +64,27 @@ namespace irworksWeb\GUI {
             $pages = array();
             $result = $this->db->query($q);
             while($result && $page = mysqli_fetch_object($result, Page::class)) {
-                if(empty($page->getPageIdParent())) {
-                    $this->addNavigationItem($page->getPageTitle(), '/page/' . $page->getPageURI());
-                }
                 $pages[] = $page;
             }
+
+            for($i = 0; $i < count($pages); $i++) {
+                for($j = 0; $j < count($pages); $j++) {
+                    if($pages[$i]->getPageId() == $pages[$j]->getPageIdParent()) {
+                        $pages[$i]->addChildren($pages[$j]);
+                    }
+                }
+
+                if(empty($pages[$i]->getPageIdParent())) {
+                    $this->addNavigationItem($pages[$i]->getPageTitle(), '/page/' . $pages[$i]->getPageURI(), '', $pages[$i]->getChildren());
+                }
+            }
+
+            /*
+             *  if(empty($page->getPageIdParent())) {
+                    $this->addNavigationItem($page->getPageTitle(), '/page/' . $page->getPageURI());
+                }
+             *
+             */
 
             return $pages;
         }

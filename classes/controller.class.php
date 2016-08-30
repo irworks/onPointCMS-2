@@ -49,8 +49,15 @@ abstract class Controller
         echo $this->tpl->getFullHTML(GENERAL_NAME);
     }
 
-    protected function addNavigationItem($displayName, $link, $specialClasses = '') {
-        $this->navigationContent .= '<li class="navigation-item ' . $specialClasses . '"><a class="navigation-item-link" href="' . $link . '">' . $displayName . '</a></li>';
+    protected function addNavigationItem($displayName, $link, $specialClasses = '', $children = array()) {
+        $childrenList = '';
+
+        foreach ($children as $child) {
+            $childrenList .= '<li class="navigation-item"><a class="navigation-item-link" href="' . '/page/' . $child->getPageURI()  .'">' . $child->getPageTitle() . '</a></li>';
+        }
+
+        $specialClasses = ' ' . $specialClasses;
+        $this->navigationContent .= '<li class="navigation-item' . $specialClasses . '"><a class="navigation-item-link" href="' . $link . '">' . $displayName . '</a><ul class="children">' . $childrenList  .'</ul></li>';
     }
 
     protected function getNavigationList() {
