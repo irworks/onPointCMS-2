@@ -27,14 +27,16 @@ namespace irworksWeb\GUI {
         protected $pageOpener;
         protected $pageModel;
         protected $pages;
+        protected $extraHead;
 
-        function __construct(DB $db, $contentID, $pageTitle = '', $pageSubtitle = '', $pageOpener = 'IR WORKS') {
+        function __construct(DB $db, $contentID, $pageTitle = '', $pageSubtitle = '', $pageOpener = 'IR WORKS', $extraHead = '') {
             parent::__construct($db);
 
             $this->contentID        = $contentID;
             $this->pageTitle        = $pageTitle;
             $this->pageSubtitle     = $pageSubtitle;
             $this->pageOpener       = $pageOpener;
+            $this->extraHead        = $extraHead;
 
             $this->pages = $this->getAllPages();
             $this->preparePage();
@@ -48,6 +50,7 @@ namespace irworksWeb\GUI {
             $this->tpl->assign('pageOpener', $this->pageOpener);
             $this->tpl->assign('pageTitle', $this->pageTitle);
             $this->tpl->assign('pageSubtitle', $this->pageSubtitle);
+            $this->tpl->assign('extraHead', $this->extraHead);
 
             $this->tpl->assign('footer', '&copy; ' . date('Y') . ', ' . SITE_KEYWORD);
 
