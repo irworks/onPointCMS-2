@@ -33,13 +33,14 @@ function getImageData() {
         if(data.success) {
             imageDataArray = JSON.parse(data.response);
 
-            /*
             prepareImagesArray();
 
-            $("#source").attr("src", imgArray[0].source);
-            $("#target").attr("href", imgArray[0].target);
-            */
-            startUpdater();
+            if(imgArray.length > 0) {
+                _('#source').html.src   = imgArray[0].source;
+                _('#target').html.href  = imgArray[0].target;
+
+                startUpdater();
+            }
         }
     });
 }
@@ -51,12 +52,12 @@ function slideImage() {
     } else {
         currentImage = 0;
     }
-    $("#source").fadeOut(function() {
-        $(this).load(function() {
-            $(this).fadeIn(800);
-        });
-        $("#target").attr("href", imgArray[currentImage].target);
-        $(this).attr("src", imgArray[currentImage].source);
+
+    _('#source').fadeOut(0.5, function () {
+        _('#source').html.src   = imgArray[currentImage].source;
+        _('#target').html.href  = imgArray[currentImage].target;
+
+        _('#source').fadeIn(0.5);
     });
 }
 
