@@ -56,3 +56,10 @@ CREATE TABLE IF NOT EXISTS page_child(
   FOREIGN KEY (pageIdParent) REFERENCES page(pageId),
   FOREIGN KEY (pageIdChild) REFERENCES page(pageId)
 );
+
+# Create the table for the homepage-slider
+CREATE TABLE IF NOT EXISTS slide (
+  slideId INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  source  VARCHAR(256) NOT NULL,
+  target  VARCHAR(256) NOT NULL
+);
