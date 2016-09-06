@@ -7,16 +7,17 @@
  * @link https://github.com/irworks/onPointCMS-2
  */
 
-var imageDataArray = [];
-var imgArray = [];
-var currentImage = 0;
+var imageDataArray  = [];
+var imgArray        = [];
+var currentImage    = 0;
+var imageDuration   = 8000;
 
 getImageData();
 
 function startUpdater() {
     setInterval(function() {
         slideImage();
-    }, 8000);
+    }, imageDuration);
 }
 
 function prepareImagesArray() {
@@ -53,7 +54,7 @@ function slideImage() {
         currentImage = 0;
     }
 
-    _('#source').fadeOut(0.5, function () {
+    _('#source').fadeOut(0.5, true, function () {
         _('#source').html.src   = imgArray[currentImage].source;
         _('#target').html.href  = imgArray[currentImage].target;
 
