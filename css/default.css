@@ -110,7 +110,7 @@ a.navigation-item-link, a.navigation-item-link:visited, a.navigation-item-link:l
 /* overlay */
 
 .site-main-overlay {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.98);
     min-height: 100%;
     min-width: 100%;
 }
@@ -124,12 +124,27 @@ a.navigation-item-link, a.navigation-item-link:visited, a.navigation-item-link:l
 }
 
 .slider-image {
-    width: 940px;
-    height: 425px;
+    max-width: 940px;
+    max-height: 425px;
+
+    width: 100%;
 }
 
 /* footer */
 
 .site-footer {
     padding: 15px;
+}
+
+/* mobile */
+
+@media only screen and (min-width: 150px) and (max-width: 640px) {
+
+    h1 {
+        font-size: 60px;
+    }
+
+    .site-content-inner {
+        width: 90%;
+    }
 }
