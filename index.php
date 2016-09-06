@@ -65,11 +65,11 @@ namespace irworksWeb {
                 case 'slides':
                     require_once './classes/sliderController.class.php';
                     $sliderController = new SliderController($db);
-                    $output = $sliderController->getSlides();
+                    $output = $sliderController->getSlides(true);
                     break;
             }
 
-            echo (json_encode($output));
+            echo json_encode($output);
 
             break;
 

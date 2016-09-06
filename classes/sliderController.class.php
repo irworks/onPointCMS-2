@@ -50,9 +50,20 @@ class SliderController
 
     /**
      * Return the list of slide models.
+     * @param bool $asArray - Return the slides as a array of arrays instead of objects.
      * @return array
      */
-    public function getSlides(): array {
+    public function getSlides($asArray = false): array {
+
+        if($asArray) {
+            $jsonSlides = array();
+            foreach ($this->slides as $slide) {
+                $jsonSlides[] = $slide->toArray();
+            }
+
+            return $jsonSlides;
+        }
+
         return $this->slides;
     }
 }
