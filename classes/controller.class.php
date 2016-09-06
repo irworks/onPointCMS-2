@@ -32,7 +32,6 @@ abstract class Controller
 
         $this->pageContent = '';
         $this->addNavigationItem('IRWORKS.DE', '/', 'big-navigation-item');
-        $this->addNavigationItem('Home', '/');
         $this->addNavigationItem('Blog', '/blog/');
     }
     
@@ -49,7 +48,7 @@ abstract class Controller
         echo $this->tpl->getFullHTML(GENERAL_NAME);
     }
 
-    protected function addNavigationItem($displayName, $link, $specialClasses = '', $children = array()) {
+    protected function addNavigationItem($displayName, $link, $specialClasses = 'mobile-nav-hide', $children = array()) {
         $childrenList = '';
 
         foreach ($children as $child) {

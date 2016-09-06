@@ -80,6 +80,16 @@ li.navigation-item:hover {
     background-color: #cf5b3e;
 }
 
+/* navigation mobile extras are hidden */
+li.navigation-item.mobile-nav-hide {
+    display: block;
+}
+
+li#mobile-nav-opener {
+    display: none;
+}
+
+/* navigation children */
 ul.navigation-items li ul {
     position: absolute;
     width: 15em;
@@ -161,4 +171,41 @@ a.navigation-item-link, a.navigation-item-link:visited, a.navigation-item-link:l
     .slider-placeholder {
         display: none;
     }
+
+    /* mobile nav */
+    .site-navigation {
+        height: auto;
+    }
+
+    li.navigation-item {
+        float: none;
+        height: auto;
+        display: block;
+        padding-left: 0;
+    }
+
+    ul.navigation-items li ul {
+        position: relative;
+        width: auto;
+        left: auto;
+        background-color: transparent;
+        margin-left: 0;
+    }
+
+    li.navigation-item.mobile-nav-hide {
+        display: none;
+    }
+
+    li#mobile-nav-opener {
+        display: block;
+        float: right;
+        height: 65px;
+        line-height: 65px;
+        padding-right: 25px;
+
+        font-size: 25px;
+        color: white;
+        cursor: pointer;
+    }
+
 }

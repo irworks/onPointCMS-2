@@ -78,7 +78,7 @@ namespace irworksWeb\GUI {
                 }
 
                 if(empty($pages[$i]->getPageIdParent())) {
-                    $this->addNavigationItem($pages[$i]->getPageTitle(), '/page/' . $pages[$i]->getPageURI(), '', $pages[$i]->getChildren());
+                    $this->addNavigationItem($pages[$i]->getPageTitle(), '/page/' . $pages[$i]->getPageURI(), 'mobile-nav-hide', $pages[$i]->getChildren());
                 }
             }
 
