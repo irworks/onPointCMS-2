@@ -6,9 +6,9 @@
  */
 
 /**
- * Module: [INSERT]
+ * Module: Homepage, custom page for the landing one.
  * File: irworksWeb/homepage.class.php
- * Depends: [NONE]
+ * Depends: DB, Contentpage etc.
  */
 
 namespace irworksWeb\GUI;
@@ -20,6 +20,8 @@ class Homepage extends Contentpage
 {
     function __construct(DB $db) {
         parent::__construct($db, '', 'Homepage', false);
+
+        $this->extraHead .= '<script src="/js/slider.js" type="text/javascript"></script>';
 
         $this->tpl->assign('pageSubtitle', 'More than just code.');
         $this->tpl->assign('sampleText', 'Lorem ipsum...');

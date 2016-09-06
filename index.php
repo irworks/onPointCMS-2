@@ -20,6 +20,7 @@ namespace irworksWeb {
     }
 
     use irworksWeb\Controller\DB;
+    use irworksWeb\Controller\SliderController;
     use irworksWeb\GUI\Blog;
     use irworksWeb\GUI\Contentpage;
     use irworksWeb\GUI\DatabaseFailedPage;
@@ -54,6 +55,22 @@ namespace irworksWeb {
                 require_once './pages/staticPage.class.php';
                 new StaticPage($db, $contentID);
             }
+            break;
+
+        case 'ajax':
+
+            $output = array();
+
+            switch ($contentID) {
+                case 'slides':
+                    require_once './classes/sliderController.class.php';
+                    $sliderController = new SliderController($db);
+                    $output = $sliderController->getSlides();
+                    break;
+            }
+
+            echo (json_encode($output));
+
             break;
 
     }
