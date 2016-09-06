@@ -29,5 +29,12 @@ class BaseModel
         return $this->updateDaTi;
     }
 
+    /**
+     * Return self as an array.
+     * @return array
+     */
+    public function toArray() {
+        return get_object_vars($this);
+    }
 
 }
