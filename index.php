@@ -77,9 +77,20 @@ namespace irworksWeb {
         
         case 'op-login':
             session_start();
-
             require_once './admin/adminPage.class.php';
-            new AdminPage($db);
+
+            $username  = empty($_POST['username']) ? false : $_POST['username'];
+            $password  = empty($_POST['password']) ? false : $_POST['password'];
+
+            $loginUser = NULL;
+
+            if($username && $password) {
+                $loginUser = new \User();
+                $loginUser->setUsername($username);
+                $loginUser->setPassword($password);
+            }
+
+            new AdminPage($db, $loginUser);
             break;
 
     }

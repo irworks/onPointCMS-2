@@ -1,6 +1,7 @@
-<form>
-    <p><input class="textField" type="text" placeholder="Username"></p>
-    <p><input class="textField" type="password" placeholder="Password"></p>
+<form method="post">
+    <p id="login-error">{$loginError}</p>
+    <p><input class="textField" type="text" name="username" placeholder="Username"></p>
+    <p><input class="textField" type="password" name="password" placeholder="Password"></p>
     <br>
     <input class="button" type="submit" value="Login">
 </form>

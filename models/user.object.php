@@ -40,5 +40,21 @@ class User extends BaseModel
         return $this->password;
     }
 
+    /**
+     * @param mixed $username
+     */
+    public function setUsername($username) {
+        $this->username = $username;
+    }
+
+    /**
+     * @param mixed $password
+     */
+    public function setPassword($password) {
+        $this->password = $password;
+    }
+
+
+
 
 }

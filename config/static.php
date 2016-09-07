@@ -19,4 +19,5 @@ define('GENERAL_NAME', 'general.html');
 define('BLOG_POST_PREVIEW_LENGTH', 512);
 
 define('ADMIN_SESSION', 'admin_session');
+define('PASSWORD_SALT', 'vam;Eng;yu:Od<Ec?hinK+oM');
 ?>
