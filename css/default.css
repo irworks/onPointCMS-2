@@ -47,6 +47,10 @@ h1 {
     clear: both;
 }
 
+.ir-non-float {
+    float: none !important;
+}
+
 /* navigation */
 
 .site-navigation {

@@ -21,6 +21,7 @@ namespace irworksWeb {
 
     use irworksWeb\Controller\DB;
     use irworksWeb\Controller\SliderController;
+    use irworksWeb\GUI\AdminPage;
     use irworksWeb\GUI\Blog;
     use irworksWeb\GUI\Contentpage;
     use irworksWeb\GUI\DatabaseFailedPage;
@@ -48,6 +49,7 @@ namespace irworksWeb {
             break;
 
         case 'page':
+        default:
             if($contentID == '') {
                 require_once './pages/homepage.class.php';
                 new Homepage($db);
@@ -71,6 +73,13 @@ namespace irworksWeb {
 
             echo json_encode($output);
 
+            break;
+        
+        case 'op-login':
+            session_start();
+
+            require_once './admin/adminPage.class.php';
+            new AdminPage($db);
             break;
 
     }

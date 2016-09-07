@@ -17,4 +17,6 @@ define('SITE_KEYWORD', 'IR Works, Ilja Rozhko');
 
 define('GENERAL_NAME', 'general.html');
 define('BLOG_POST_PREVIEW_LENGTH', 512);
+
+define('ADMIN_SESSION', 'admin_session');
 ?>
