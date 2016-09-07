@@ -51,6 +51,10 @@ h1 {
     float: none !important;
 }
 
+.ir-width-80 {
+    width: 80%;
+}
+
 /* navigation */
 
 .site-navigation {
@@ -147,6 +151,40 @@ a.navigation-item-link, a.navigation-item-link:visited, a.navigation-item-link:l
     height: 425px;
 }
 
+.textField {
+    padding-left: 20px;
+    height: 40px;
+    margin-top: 10px;
+    border: 2px solid rgba(242, 146, 49, 0.94);
+    border-radius: 6px;
+    font-size: 16px;
+    color: rgb(53, 53, 53);
+    outline: none;
+}
+
+.button, input[type=submit] {
+    height: 50px;
+    background-color: #e98d2f;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 5px;
+    color: white !important;
+    transition: all .2s ease-in-out;
+    border: 0 none;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #ab6823;
+}
+
+.button a, .button a:active, .button a:link {
+    color: white;
+}
+
+.button a:hover {
+    color: rgba(199, 197, 197, 0.83);
+}
 
 /* footer */
 

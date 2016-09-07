@@ -1,25 +1,3 @@
-.read-more-button {
-    height: 50px;
-    background-color: #e98d2f;
-    line-height: 50px;
-    text-align: center;
-    border-radius: 5px;
-    color: white !important;
-    transition: all .2s ease-in-out;
-}
-
-.read-more-button:hover {
-    background-color: #ab6823;
-}
-
-.read-more-button a, .read-more-button a:active, .read-more-button a:link {
-    color: white;
-}
-
-.read-more-button a:hover {
-    color: rgba(199, 197, 197, 0.83);
-}
-
 .published-date {
     float: right;
 }
