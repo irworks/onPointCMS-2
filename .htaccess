@@ -8,5 +8,5 @@
     RewriteRule ^ - [L]
 
 	RewriteRule (.+)\/$ index.php?content-type=$1 [QSA,NC,L]
-	RewriteRule (.+)\/(.+) index.php?content-type=$1&content-id=$2&requestFilename=%{REQUEST_FILENAME} [QSA,NC,L]
+	RewriteRule (.+)\/(.+) index.php?content-type=$1&content-id=$2 [QSA,NC,L]
 </IfModule>
