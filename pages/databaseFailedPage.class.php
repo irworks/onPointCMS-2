@@ -2,7 +2,7 @@
 /**
  * Created by irworks on 30.08.16.
  * © Copyright irworks, 2016
- * All rights reserved, do not distribute
+ * @link https://github.com/irworks/onPointCMS-2
  might*
  * Module: [INSERT]
  * File: irworksWeb/databaseFailedPage.class.php
