@@ -47,6 +47,14 @@ class AdminPage extends Contentpage
         $this->renderPage();
     }
 
+    protected function getUser() {
+        if(isset($_SESSION[ADMIN_SESSION])) {
+            return new User($_SESSION[ADMIN_SESSION]);
+        }
+
+        return null;
+    }
+
     /**
      * Try to log the given user in.
      * @param User $user
@@ -61,7 +69,7 @@ class AdminPage extends Contentpage
         $result = $this->db->query($q);
         if($result && $dbUser = mysqli_fetch_object($result, User::class)) {
             if($dbUser->getPassword() === crypt($user->getPassword(), PASSWORD_SALT)) {
-                $_SESSION[ADMIN_SESSION] = $dbUser;
+                $_SESSION[ADMIN_SESSION] = $dbUser->toArray();
                 return true;
             }
         }

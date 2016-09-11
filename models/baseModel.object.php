@@ -16,6 +16,21 @@ class BaseModel
     protected $updateDaTi;
 
     /**
+     * BaseModel constructor - Map a key => value array to a class
+     * @param array $keyValueArray
+     */
+    function __construct($keyValueArray = array()) {
+        foreach ($keyValueArray as $key => $value) {
+            foreach (get_class_vars(get_class($this)) as $varKey => $varValue) {
+                if($varKey === $key) {
+                    $this->$varKey = $value;
+                }
+            }
+        }
+
+    }
+
+    /**
      * @return mixed
      */
     public function getCreateDaTi() {
