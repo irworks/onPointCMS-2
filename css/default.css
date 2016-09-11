@@ -88,6 +88,10 @@ li.navigation-item:hover {
     background-color: #cf5b3e;
 }
 
+li.navigation-item-admin:hover {
+    background-color: transparent;
+}
+
 /* navigation mobile extras are hidden */
 li.navigation-item.mobile-nav-hide {
     display: block;
