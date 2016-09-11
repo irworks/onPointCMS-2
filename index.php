@@ -74,23 +74,39 @@ namespace irworksWeb {
             echo json_encode($output);
 
             break;
-        
-        case 'op-login':
+
+        /* Admin pages */
+        case 'op-admin':
             session_start();
-            require_once './admin/adminPage.class.php';
 
-            $username  = empty($_POST['username']) ? false : $_POST['username'];
-            $password  = empty($_POST['password']) ? false : $_POST['password'];
+            switch ($contentID) {
 
-            $loginUser = NULL;
+                /* log a admin user in */
+                default:
+                case 'login':
+                    require_once './admin/adminPage.class.php';
 
-            if($username && $password) {
-                $loginUser = new \User();
-                $loginUser->setUsername($username);
-                $loginUser->setPassword($password);
+                    $username  = empty($_POST['username']) ? false : $_POST['username'];
+                    $password  = empty($_POST['password']) ? false : $_POST['password'];
+
+                    $loginUser = NULL;
+
+                    if($username && $password) {
+                        $loginUser = new \User();
+                        $loginUser->setUsername($username);
+                        $loginUser->setPassword($password);
+                    }
+
+                    new AdminPage($db, $loginUser);
+
+                    break;
+
+                case 'logout':
+                    session_destroy();
+                    header('Location: /');
+                    break;
             }
 
-            new AdminPage($db, $loginUser);
             break;
 
     }
