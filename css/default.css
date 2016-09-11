@@ -190,6 +190,10 @@ a.navigation-item-link, a.navigation-item-link:visited, a.navigation-item-link:l
     color: rgba(199, 197, 197, 0.83);
 }
 
+.version-details {
+    text-align: left;
+}
+
 /* footer */
 
 .site-footer {

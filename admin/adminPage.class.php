@@ -6,7 +6,7 @@
  */
 
 /**
- * Module: [INSERT]
+ * Module: General admin page.
  * File: irworksWeb/adminPage.class.php
  * Depends: [NONE]
  */
@@ -21,6 +21,7 @@ require_once __DIR__ . '/../models/user.object.php';
 class AdminPage extends Contentpage
 {
     protected $user;
+    protected $siteContent;
 
     function __construct(DB $db, User $loginUser = NULL) {
         parent::__construct($db, -1, $this->pageTitle, 'Admin interface');
@@ -35,16 +36,18 @@ class AdminPage extends Contentpage
         if(!empty($_SESSION[ADMIN_SESSION])) {
             /** The user is signed in. */
             $this->tpl->loadHTML('admin-navigation.html');
-            $siteContent = $this->tpl->getFullHTML('admin-navigation.html');
+            $this->siteContent = $this->tpl->getFullHTML('admin-navigation.html');
         }else{
             /** Show the login screen. */
             $this->tpl->loadHTML('admin-login.html');
             $this->tpl->assign('loginError', $loginError, 'admin-login.html');
-            $siteContent = $this->tpl->getFullHTML('admin-login.html');
+            $this->siteContent = $this->tpl->getFullHTML('admin-login.html');
         }
+    }
 
-        $this->tpl->assign('siteContent', $siteContent);
-        $this->renderPage();
+    public function renderPage() {
+        $this->tpl->assign('siteContent', $this->siteContent);
+        parent::renderPage();
     }
 
     protected function getUser() {
@@ -53,6 +56,10 @@ class AdminPage extends Contentpage
         }
 
         return null;
+    }
+
+    protected function isLoggedIn() {
+        return $this->getUser() ?? false;
     }
 
     /**

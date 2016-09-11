@@ -24,6 +24,7 @@ namespace irworksWeb {
     use irworksWeb\GUI\AdminPage;
     use irworksWeb\GUI\Blog;
     use irworksWeb\GUI\Contentpage;
+    use irworksWeb\GUI\Dashboard;
     use irworksWeb\GUI\DatabaseFailedPage;
     use irworksWeb\GUI\Homepage;
     use irworksWeb\GUI\StaticPage;
@@ -97,13 +98,19 @@ namespace irworksWeb {
                         $loginUser->setPassword($password);
                     }
 
-                    new AdminPage($db, $loginUser);
-
+                    $page = new AdminPage($db, $loginUser);
+                    $page->renderPage();
                     break;
 
                 case 'logout':
                     session_destroy();
                     header('Location: /');
+                    break;
+
+                case 'dashboard':
+                    require_once './admin/dashboard.class.php';
+                    $page = new Dashboard($db);
+                    $page->renderPage();
                     break;
             }
 
