@@ -6,7 +6,7 @@
  */
 
 /**
- * Module: [INSERT]
+ * Module: Admin interface, get the list of all pages.
  * File: irworksWeb/pageslist.class.php
  * Depends: [NONE]
  */
