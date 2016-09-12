@@ -24,7 +24,7 @@ class AdminPage extends Contentpage
     protected $siteContent;
 
     function __construct(DB $db, User $loginUser = NULL) {
-        parent::__construct($db, -1, $this->pageTitle, 'Admin interface');
+        parent::__construct($db, -1, 'Admin interface', 'Admin interface');
 
         $loginError = '';
         if($loginUser) {

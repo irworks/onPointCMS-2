@@ -27,6 +27,7 @@ namespace irworksWeb {
     use irworksWeb\GUI\Dashboard;
     use irworksWeb\GUI\DatabaseFailedPage;
     use irworksWeb\GUI\Homepage;
+    use irworksWeb\GUI\Pageslist;
     use irworksWeb\GUI\StaticPage;
 
     $contentType = isset($_GET['content-type']) ? removeTags($_GET['content-type']) : 'page';
@@ -110,6 +111,12 @@ namespace irworksWeb {
                 case 'dashboard':
                     require_once './admin/dashboard.class.php';
                     $page = new Dashboard($db);
+                    $page->renderPage();
+                    break;
+
+                case 'pages':
+                    require_once './admin/pageslist.class.php';
+                    $page = new Pageslist($db);
                     $page->renderPage();
                     break;
             }
