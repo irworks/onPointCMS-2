@@ -14,6 +14,7 @@
 namespace irworksWeb\GUI;
 
 use irworksWeb\Controller\DB;
+use irworksWeb\Controller\MySQLTables;
 
 require_once __DIR__ . '/contentpage.class.php';
 require_once __DIR__ . '/../models/blogPost.object.php';
@@ -21,25 +22,30 @@ require_once __DIR__ . '/../models/blogPost.object.php';
 class Blog extends Contentpage
 {
     function __construct(DB $db, $contentID, $pageTitle) {
-        parent::__construct($db, $contentID, $pageTitle, '@ME - remember to add translation!', $pageTitle);
+        parent::__construct($db, $contentID, $pageTitle, 'More than just a blog?', $pageTitle);
 
         $this->tpl->loadHTML('blog-head.html');
         $this->extraHead = $this->tpl->getFullHTML('blog-head.html');
 
-        $this->getBlogPosts();
+        $this->getBlogPosts(10, $this->contentID);
         $this->renderPage();
     }
 
-    private function getBlogPosts($limit = 10) {
+    /**
+     * Get all, or one specific Blogpost.
+     * @param int $limit
+     * @param bool $contentId
+     */
+    private function getBlogPosts($limit = 10, $contentId = false) {
         $isSinglePost = false;
 
         $q = 'SELECT postId, postTitle, postContent, createDaTi, updateDaTi' . PHP_EOL;
         $q .= 'FROM' . PHP_EOL;
-        $q .= 'blog' . PHP_EOL;
+        $q .= $this->db->clr(MySQLTables::$BLOG_TABLE) . PHP_EOL;
 
-        if(!empty($this->contentID)) {
+        if(!empty($contentId)) {
             //only one post should be displayed
-            $q .= 'WHERE postId = ' . $this->db->cl($this->contentID) . PHP_EOL;
+            $q .= 'WHERE postId = ' . $this->db->cl($contentId) . PHP_EOL;
 
             $limit           = 1;
             $isSinglePost    = true;

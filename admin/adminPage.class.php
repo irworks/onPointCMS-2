@@ -14,6 +14,7 @@
 namespace irworksWeb\GUI;
 
 use irworksWeb\Controller\DB;
+use irworksWeb\Controller\MySQLTables;
 use User;
 
 require_once __DIR__ . '/../pages/contentpage.class.php';
@@ -70,7 +71,7 @@ class AdminPage extends Contentpage
     private function loginUser(User $user) {
         $q  = 'SELECT userId, username, password' . PHP_EOL;
         $q .=   'FROM' . PHP_EOL;
-        $q .= 'users' . PHP_EOL;
+        $q .= $this->db->clr(MySQLTables::$USER_TABLE) . PHP_EOL;
         $q .=   'WHERE username = ' . $this->db->cl($user->getUsername());
 
         $result = $this->db->query($q);

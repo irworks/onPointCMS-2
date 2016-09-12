@@ -17,6 +17,7 @@ namespace irworksWeb\GUI {
 
     use irworksWeb\Controller\Controller;
     use irworksWeb\Controller\DB;
+    use irworksWeb\Controller\MySQLTables;
     use Page;
 
     class Contentpage extends Controller
@@ -61,7 +62,7 @@ namespace irworksWeb\GUI {
         private function getAllPages() {
             $q  = 'SELECT pageId, pageTitle, pageContent, pageURI, pageIdParent' . PHP_EOL;
             $q .=   'FROM' . PHP_EOL;
-            $q .= 'page LEFT JOIN page_child ON page.pageId = page_child.pageIdChild' . PHP_EOL;
+            $q .= $this->db->clr(MySQLTables::$PAGE_TABLE) . ' LEFT JOIN ' . $this->db->clr(MySQLTables::$PAGE_CHILD_TABLE) .' ON page.pageId = page_child.pageIdChild' . PHP_EOL;
             $q .=   'ORDER BY pageId';
 
             $pages = array();

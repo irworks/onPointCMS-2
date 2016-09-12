@@ -15,6 +15,7 @@ namespace irworksWeb\Controller;
 
 use Slide;
 
+require_once __DIR__ . '/mySQLTables.class.php';
 require_once __DIR__ . '/../models/slide.object.php';
 require_once __DIR__ . '/../config/static.php';
 
@@ -38,7 +39,7 @@ class SliderController
 
         $q  = 'SELECT slideId, target, source' . PHP_EOL;
         $q .=   'FROM' . PHP_EOL;
-        $q .= 'slide' . PHP_EOL;
+        $q .= $this->db->clr(MySQLTables::$SLIDER_TABLE) . PHP_EOL;
 
         $result = $this->db->query($q);
         while($result && $slide = mysqli_fetch_object($result, Slide::class)) {
